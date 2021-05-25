@@ -25,7 +25,7 @@ namespace ArduCamControler
         bool imgStart = true;
         bool JPEGformat = true;
         bool allowReceiving = false;
-        Image receivedImage = null;
+        Bitmap receivedImage = null;
         bool automatic = false;
         int photoNumber = 0;
         string[] exposure = new string[11] { "-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "5" };
@@ -378,6 +378,20 @@ namespace ArduCamControler
                 pictureBox1.Image = receivedImage;
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                if (saturationCheckBtn.Checked)
+                {
+                    bool saturated = CheckSaturation(receivedImage);
+                    if (saturated)
+                    {
+                        Invoke((Action)delegate { LogBox.AppendText("The picture is saturated!\n"); });
+                    }
+                    else
+                    {
+                        Invoke((Action)delegate { LogBox.AppendText("Received picture is not saturated!\n"); });
+
+                    }
+                }
+
                 Invoke((Action)delegate { ResolutionList.Enabled = true; });
                 Invoke((Action)delegate { ExposureList.Enabled = true; });
 
@@ -395,20 +409,6 @@ namespace ArduCamControler
             }
 
            
-            if (automatic)
-            {
-                bool saturated = CheckExposure();
-                if (saturated)
-                {
-                    photoNumber++;
-                    CaptureBtn.PerformClick();
-                }
-                else
-                {
-                    automatic = false;
-                    LogBox.AppendText("Photo number " + photoNumber.ToString() + " is not saturated.\n");
-                }
-            }
         }
 
 
@@ -616,11 +616,25 @@ namespace ArduCamControler
             CaptureBtn.PerformClick();
         }
 
-        private bool CheckExposure()
+        // If R, G and B values are all beyond a certain treshold, picture is saturated
+        private bool CheckSaturation(Bitmap photo)
         {
-            throw new NotImplementedException();
+            int Rbound = String.IsNullOrEmpty(RboundBox.Text) ? 250 : int.Parse(RboundBox.Text);
+            int Gbound = String.IsNullOrEmpty(GboundBox.Text) ? 250 : int.Parse(GboundBox.Text);
+            int Bbound = String.IsNullOrEmpty(BboundBox.Text) ? 250 : int.Parse(BboundBox.Text);
+            for (int i = 0; i < photo.Width; i++)
+            {
+                for(int j = 0; j < photo.Height; j++)
+                {
+                    Color c = photo.GetPixel(i, j);
+                    if(c.R > Rbound && c.G > Gbound && c.B > Bbound)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
-        // Automatic saturation check and automatic picture taking
 
 
     }

@@ -59,12 +59,20 @@ namespace ArduCamControler
             this.label10 = new System.Windows.Forms.Label();
             this.BrowseBtn = new System.Windows.Forms.Button();
             this.DebugBtn = new System.Windows.Forms.Button();
+            this.saturationCheckBtn = new System.Windows.Forms.CheckBox();
+            this.RboundBox = new System.Windows.Forms.TextBox();
+            this.GboundBox = new System.Windows.Forms.TextBox();
+            this.BboundBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LogBox
             // 
-            this.LogBox.Location = new System.Drawing.Point(21, 312);
+            this.LogBox.Location = new System.Drawing.Point(21, 346);
             this.LogBox.Name = "LogBox";
             this.LogBox.ReadOnly = true;
             this.LogBox.Size = new System.Drawing.Size(528, 96);
@@ -162,7 +170,7 @@ namespace ArduCamControler
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 415);
+            this.label3.Location = new System.Drawing.Point(18, 449);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 13);
             this.label3.TabIndex = 11;
@@ -171,7 +179,7 @@ namespace ArduCamControler
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(192, 415);
+            this.label4.Location = new System.Drawing.Point(192, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 12;
@@ -182,7 +190,7 @@ namespace ArduCamControler
             this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
             this.pictureBox1.Location = new System.Drawing.Point(587, 11);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(615, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(615, 446);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
@@ -206,7 +214,7 @@ namespace ArduCamControler
             // 
             // dbgStringBox
             // 
-            this.dbgStringBox.Location = new System.Drawing.Point(21, 467);
+            this.dbgStringBox.Location = new System.Drawing.Point(21, 486);
             this.dbgStringBox.Name = "dbgStringBox";
             this.dbgStringBox.ReadOnly = true;
             this.dbgStringBox.Size = new System.Drawing.Size(528, 167);
@@ -215,7 +223,7 @@ namespace ArduCamControler
             // 
             // dbgHexBox
             // 
-            this.dbgHexBox.Location = new System.Drawing.Point(587, 467);
+            this.dbgHexBox.Location = new System.Drawing.Point(587, 486);
             this.dbgHexBox.Name = "dbgHexBox";
             this.dbgHexBox.ReadOnly = true;
             this.dbgHexBox.Size = new System.Drawing.Size(615, 167);
@@ -224,7 +232,7 @@ namespace ArduCamControler
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(364, 283);
+            this.ClearBtn.Location = new System.Drawing.Point(474, 251);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(75, 23);
             this.ClearBtn.TabIndex = 18;
@@ -235,7 +243,7 @@ namespace ArduCamControler
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 448);
+            this.label6.Location = new System.Drawing.Point(18, 467);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 19;
@@ -244,7 +252,7 @@ namespace ArduCamControler
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(584, 448);
+            this.label7.Location = new System.Drawing.Point(584, 467);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 13);
             this.label7.TabIndex = 20;
@@ -312,7 +320,7 @@ namespace ArduCamControler
             // 
             // DebugBtn
             // 
-            this.DebugBtn.Location = new System.Drawing.Point(445, 283);
+            this.DebugBtn.Location = new System.Drawing.Point(445, 280);
             this.DebugBtn.Name = "DebugBtn";
             this.DebugBtn.Size = new System.Drawing.Size(104, 23);
             this.DebugBtn.TabIndex = 28;
@@ -320,11 +328,86 @@ namespace ArduCamControler
             this.DebugBtn.UseVisualStyleBackColor = true;
             this.DebugBtn.Click += new System.EventHandler(this.DebugBtn_Click);
             // 
+            // saturationCheckBtn
+            // 
+            this.saturationCheckBtn.AutoSize = true;
+            this.saturationCheckBtn.Location = new System.Drawing.Point(35, 280);
+            this.saturationCheckBtn.Name = "saturationCheckBtn";
+            this.saturationCheckBtn.Size = new System.Drawing.Size(121, 17);
+            this.saturationCheckBtn.TabIndex = 29;
+            this.saturationCheckBtn.Text = "Check for saturation";
+            this.saturationCheckBtn.UseVisualStyleBackColor = true;
+            // 
+            // RboundBox
+            // 
+            this.RboundBox.Location = new System.Drawing.Point(56, 320);
+            this.RboundBox.Name = "RboundBox";
+            this.RboundBox.Size = new System.Drawing.Size(54, 20);
+            this.RboundBox.TabIndex = 30;
+            // 
+            // GboundBox
+            // 
+            this.GboundBox.Location = new System.Drawing.Point(142, 320);
+            this.GboundBox.Name = "GboundBox";
+            this.GboundBox.Size = new System.Drawing.Size(54, 20);
+            this.GboundBox.TabIndex = 31;
+            // 
+            // BboundBox
+            // 
+            this.BboundBox.Location = new System.Drawing.Point(225, 320);
+            this.BboundBox.Name = "BboundBox";
+            this.BboundBox.Size = new System.Drawing.Size(54, 20);
+            this.BboundBox.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(34, 301);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(256, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Bounds for saturation check (leave empty for default)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(34, 323);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(18, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "R:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(202, 323);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 13);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "B:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(117, 323);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(18, 13);
+            this.label14.TabIndex = 36;
+            this.label14.Text = "G:";
+            // 
             // ArduCamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 449);
+            this.ClientSize = new System.Drawing.Size(1214, 676);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.BboundBox);
+            this.Controls.Add(this.GboundBox);
+            this.Controls.Add(this.RboundBox);
+            this.Controls.Add(this.saturationCheckBtn);
             this.Controls.Add(this.DebugBtn);
             this.Controls.Add(this.BrowseBtn);
             this.Controls.Add(this.label10);
@@ -394,6 +477,14 @@ namespace ArduCamControler
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BrowseBtn;
         private System.Windows.Forms.Button DebugBtn;
+        private System.Windows.Forms.CheckBox saturationCheckBtn;
+        private System.Windows.Forms.TextBox RboundBox;
+        private System.Windows.Forms.TextBox GboundBox;
+        private System.Windows.Forms.TextBox BboundBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }
 
